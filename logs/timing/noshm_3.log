@@ -1,0 +1,44 @@
+# nccl-tests version 2.21.1 (afd59ab) nccl-headers=22501 nccl-library=22501
+# Collective test starting: all_reduce_perf
+# nThread 1 nGpus 2 minBytes 8 maxBytes 536870912 step: 2(factor) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0 unalign: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid   2600 on 610da0310437 device  0 [0000:00:04] Tesla T4
+#  Rank  1 Group  0 Pid   2600 on 610da0310437 device  1 [0000:00:05] Tesla T4
+#
+#                                                              out-of-place                       in-place
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)        
+           8             2     float     sum      -1    71.43    0.00    0.00       0    51.26    0.00    0.00       0
+          16             4     float     sum      -1    52.00    0.00    0.00       0    48.32    0.00    0.00       0
+          32             8     float     sum      -1    60.51    0.00    0.00       0    61.02    0.00    0.00       0
+          64            16     float     sum      -1    57.87    0.00    0.00       0    58.70    0.00    0.00       0
+         128            32     float     sum      -1    57.25    0.00    0.00       0    60.05    0.00    0.00       0
+         256            64     float     sum      -1    60.96    0.00    0.00       0    56.92    0.00    0.00       0
+         512           128     float     sum      -1    59.39    0.01    0.01       0    59.43    0.01    0.01       0
+        1024           256     float     sum      -1    65.26    0.02    0.02       0    66.22    0.02    0.02       0
+        2048           512     float     sum      -1    66.98    0.03    0.03       0    62.24    0.03    0.03       0
+        4096          1024     float     sum      -1    69.75    0.06    0.06       0    66.90    0.06    0.06       0
+        8192          2048     float     sum      -1    82.91    0.10    0.10       0    71.40    0.11    0.11       0
+       16384          4096     float     sum      -1   122.96    0.13    0.13       0   122.18    0.13    0.13       0
+       32768          8192     float     sum      -1   135.84    0.24    0.24       0   145.85    0.22    0.22       0
+       65536         16384     float     sum      -1   231.41    0.28    0.28       0   230.89    0.28    0.28       0
+      131072         32768     float     sum      -1   252.43    0.52    0.52       0   252.15    0.52    0.52       0
+      262144         65536     float     sum      -1   308.83    0.85    0.85       0   320.50    0.82    0.82       0
+      524288        131072     float     sum      -1   416.49    1.26    1.26       0   480.29    1.09    1.09       0
+     1048576        262144     float     sum      -1   668.67    1.57    1.57       0   629.94    1.66    1.66       0
+     2097152        524288     float     sum      -1  1074.63    1.95    1.95       0  1117.33    1.88    1.88       0
+     4194304       1048576     float     sum      -1  2117.00    1.98    1.98       0  1859.01    2.26    2.26       0
+     8388608       2097152     float     sum      -1  3910.50    2.15    2.15       0  3908.41    2.15    2.15       0
+    16777216       4194304     float     sum      -1  7105.78    2.36    2.36       0  7538.73    2.23    2.23       0
+    33554432       8388608     float     sum      -1  16624.1    2.02    2.02       0  16546.8    2.03    2.03       0
+    67108864      16777216     float     sum      -1  33265.8    2.02    2.02       0  32364.9    2.07    2.07       0
+   134217728      33554432     float     sum      -1  64866.1    2.07    2.07       0  64188.9    2.09    2.09       0
+   268435456      67108864     float     sum      -1   126624    2.12    2.12       0   126092    2.13    2.13       0
+   536870912     134217728     float     sum      -1   254254    2.11    2.11       0   238424    2.25    2.25       0
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 0.887131 
+#
+# Collective test concluded: all_reduce_perf
+#
+

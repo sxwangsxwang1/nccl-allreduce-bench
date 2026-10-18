@@ -1,0 +1,110 @@
+# nccl-tests version 2.21.1 (afd59ab) nccl-headers=22501 nccl-library=22501
+# Collective test starting: all_reduce_perf
+# nThread 1 nGpus 2 minBytes 1048576 maxBytes 1048576 step: 1048576(bytes) warmup iters: 1 iters: 1 agg iters: 1 validation: 1 graph: 0 unalign: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid   2539 on 610da0310437 device  0 [0000:00:04] Tesla T4
+#  Rank  1 Group  0 Pid   2539 on 610da0310437 device  1 [0000:00:05] Tesla T4
+610da0310437:2539:2539 [0] NCCL INFO cudaDriverVersion 13000
+610da0310437:2539:2539 [0] NCCL INFO NCCL version 2.25.1+cuda12.8
+610da0310437:2539:2545 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so. Using internal network plugin.
+610da0310437:2539:2545 [0] NCCL INFO NET/IB : No device found.
+610da0310437:2539:2545 [0] NCCL INFO NET/IB : Using [RO]; OOB eth0:172.19.2.2<0>
+610da0310437:2539:2545 [0] NCCL INFO NET/Socket : Using [0]eth0:172.19.2.2<0>
+610da0310437:2539:2545 [0] NCCL INFO Using network Socket
+610da0310437:2539:2546 [1] NCCL INFO Using network Socket
+610da0310437:2539:2546 [1] NCCL INFO ncclCommInitRankConfig comm 0x57bdcf923520 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 50 commId 0xfe0c5f5d6aa00816 - Init START
+610da0310437:2539:2545 [0] NCCL INFO ncclCommInitRankConfig comm 0x57bdcf8a3bc0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 40 commId 0xfe0c5f5d6aa00816 - Init START
+610da0310437:2539:2545 [0] NCCL INFO RAS client listening socket at ::1<28028>
+610da0310437:2539:2545 [0] NCCL INFO Setting affinity for GPU 0 to 0f
+610da0310437:2539:2546 [1] NCCL INFO Setting affinity for GPU 1 to 0f
+610da0310437:2539:2546 [1] NCCL INFO comm 0x57bdcf923520 rank 1 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+610da0310437:2539:2545 [0] NCCL INFO comm 0x57bdcf8a3bc0 rank 0 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+610da0310437:2539:2546 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+610da0310437:2539:2545 [0] NCCL INFO Channel 00/02 : 0 1
+610da0310437:2539:2546 [1] NCCL INFO P2P Chunksize set to 131072
+610da0310437:2539:2545 [0] NCCL INFO Channel 01/02 : 0 1
+610da0310437:2539:2545 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+610da0310437:2539:2545 [0] NCCL INFO P2P Chunksize set to 131072
+610da0310437:2539:2545 [0] NCCL INFO Check P2P Type intraNodeP2pSupport 0 directMode 0
+610da0310437:2539:2548 [1] NCCL INFO [Proxy Service] Device 1 CPU core 0
+610da0310437:2539:2549 [0] NCCL INFO [Proxy Service] Device 0 CPU core 3
+610da0310437:2539:2551 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 1
+610da0310437:2539:2550 [1] NCCL INFO [Proxy Service UDS] Device 1 CPU core 0
+610da0310437:2539:2546 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+610da0310437:2539:2546 [1] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+610da0310437:2539:2545 [0] NCCL INFO   Algorithm   |                            Tree                  |                            Ring                  |                   CollNetDirect                  |
+610da0310437:2539:2545 [0] NCCL INFO   Protocol    |             LL |          LL128 |         Simple |             LL |          LL128 |         Simple |             LL |          LL128 |         Simple |
+610da0310437:2539:2545 [0] NCCL INFO  Max NThreads |            512 |            640 |            512 |            512 |            640 |            256 |              0 |              0 |            640 |
+610da0310437:2539:2545 [0] NCCL INFO     Broadcast |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     9.3/   0.6 |    18.0/   0.0 |    22.4/   1.2 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO        Reduce |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     9.3/   0.6 |    18.0/   0.0 |    22.4/   1.2 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO     AllGather |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |    11.6/   1.2 |    22.5/   0.0 |    22.4/   2.4 |     5.0/   0.0 |     8.5/   0.0 |    14.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO ReduceScatter |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |    11.6/   1.2 |    22.5/   0.0 |    22.4/   2.4 |     5.0/   0.0 |     8.5/   0.0 |    14.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO     AllReduce |    16.8/   0.2 |    31.0/   0.0 |    36.4/   0.9 |    16.6/   0.6 |    31.0/   0.0 |    36.4/   1.2 |     5.0/   0.0 |     8.5/   0.0 |    14.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO   Algorithm   |                    CollNetChain                  |                            NVLS                  |                        NVLSTree                  |
+610da0310437:2539:2545 [0] NCCL INFO   Protocol    |             LL |          LL128 |         Simple |             LL |          LL128 |         Simple |             LL |          LL128 |         Simple |
+610da0310437:2539:2545 [0] NCCL INFO  Max NThreads |              0 |              0 |            640 |              0 |              0 |            640 |              0 |              0 |            640 |
+610da0310437:2539:2545 [0] NCCL INFO     Broadcast |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO        Reduce |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO     AllGather |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |    14.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO ReduceScatter |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |    14.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO     AllReduce |     5.0/   0.0 |     8.5/   0.0 |    14.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |    14.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |    28.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO   Algorithm   |                             PAT                  |
+610da0310437:2539:2545 [0] NCCL INFO   Protocol    |             LL |          LL128 |         Simple |             LL |          LL128 |         Simple |             LL |          LL128 |         Simple |
+610da0310437:2539:2545 [0] NCCL INFO  Max NThreads |              0 |              0 |              0 |
+610da0310437:2539:2545 [0] NCCL INFO     Broadcast |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO        Reduce |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO     AllGather |     0.0/   0.0 |     0.0/   0.0 |    17.6/   1.8 |
+610da0310437:2539:2545 [0] NCCL INFO ReduceScatter |     0.0/   0.0 |     0.0/   0.0 |    17.6/   1.8 |
+610da0310437:2539:2545 [0] NCCL INFO     AllReduce |     0.0/   0.0 |     0.0/   0.0 |     0.0/   0.0 |
+610da0310437:2539:2545 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+610da0310437:2539:2545 [0] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+610da0310437:2539:2545 [0] NCCL INFO CC Off, workFifoBytes 1048576
+610da0310437:2539:2546 [1] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so libnccl-net.so. Using internal tuner plugin.
+610da0310437:2539:2546 [1] NCCL INFO ncclCommInitRankConfig comm 0x57bdcf923520 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 50 commId 0xfe0c5f5d6aa00816 - Init COMPLETE
+610da0310437:2539:2545 [0] NCCL INFO ncclCommInitRankConfig comm 0x57bdcf8a3bc0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 40 commId 0xfe0c5f5d6aa00816 - Init COMPLETE
+610da0310437:2539:2545 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 0 nranks 2 total 0.35 (kernels 0.30, alloc 0.03, bootstrap 0.00, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.00, rest 0.00)
+610da0310437:2539:2546 [1] NCCL INFO Init timings - ncclCommInitRankConfig: rank 1 nranks 2 total 0.35 (kernels 0.30, alloc 0.03, bootstrap 0.00, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.00, rest 0.00)
+#
+#                                                              out-of-place                       in-place
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)        
+     1048576        262144     float     sum      -1610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7e0a43400000 recvbuff 0x7e0a43600000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf8a3bc0 [nranks=2] stream 0x57bdcead2130
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7e0a43a00000 recvbuff 0x7e0a43c00000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf923520 [nranks=2] stream 0x57bdcf875800
+610da0310437:2539:2554 [1] NCCL INFO [Proxy Progress] Device 1 CPU core 1
+610da0310437:2539:2552 [1] NCCL INFO Channel 00/0 : 0[0] -> 1[1] [receive] via NET/Socket/0
+610da0310437:2539:2555 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 1
+610da0310437:2539:2553 [0] NCCL INFO Channel 00/0 : 1[1] -> 0[0] [receive] via NET/Socket/0
+610da0310437:2539:2553 [0] NCCL INFO Channel 01/0 : 1[1] -> 0[0] [receive] via NET/Socket/0
+610da0310437:2539:2552 [1] NCCL INFO Channel 01/0 : 0[0] -> 1[1] [receive] via NET/Socket/0
+610da0310437:2539:2553 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] [send] via NET/Socket/0
+610da0310437:2539:2553 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[1] [send] via NET/Socket/0
+610da0310437:2539:2552 [1] NCCL INFO Channel 00/0 : 1[1] -> 0[0] [send] via NET/Socket/0
+610da0310437:2539:2552 [1] NCCL INFO Channel 01/0 : 1[1] -> 0[0] [send] via NET/Socket/0
+610da0310437:2539:2552 [1] NCCL INFO Connected all rings, use ring PXN 0 GDR 0
+610da0310437:2539:2553 [0] NCCL INFO Connected all rings, use ring PXN 0 GDR 0
+610da0310437:2539:2539 [0] NCCL INFO AllReduce: 1048576 Bytes -> Algo RING proto SIMPLE channel{Lo..Hi}={0..1}
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 1 sendbuff 0x7e0a43400000 recvbuff 0x7e0a43600000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf8a3bc0 [nranks=2] stream 0x57bdcead2130
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 1 sendbuff 0x7e0a43a00000 recvbuff 0x7e0a43c00000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf923520 [nranks=2] stream 0x57bdcf875800
+610da0310437:2539:2539 [0] NCCL INFO AllReduce: 1048576 Bytes -> Algo RING proto SIMPLE channel{Lo..Hi}={0..1}
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 2 sendbuff 0x7e0a43400000 recvbuff 0x7e0a43600000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf8a3bc0 [nranks=2] stream 0x57bdcead2130
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 2 sendbuff 0x7e0a43a00000 recvbuff 0x7e0a43c00000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf923520 [nranks=2] stream 0x57bdcf875800
+610da0310437:2539:2539 [0] NCCL INFO AllReduce: 1048576 Bytes -> Algo RING proto SIMPLE channel{Lo..Hi}={0..1}
+   881.78    1.19    1.19       0610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 3 sendbuff 0x7e0a43600000 recvbuff 0x7e0a43600000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf8a3bc0 [nranks=2] stream 0x57bdcead2130
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 3 sendbuff 0x7e0a43c00000 recvbuff 0x7e0a43c00000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf923520 [nranks=2] stream 0x57bdcf875800
+610da0310437:2539:2539 [0] NCCL INFO AllReduce: 1048576 Bytes -> Algo RING proto SIMPLE channel{Lo..Hi}={0..1}
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 4 sendbuff 0x7e0a43600000 recvbuff 0x7e0a43600000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf8a3bc0 [nranks=2] stream 0x57bdcead2130
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 4 sendbuff 0x7e0a43c00000 recvbuff 0x7e0a43c00000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf923520 [nranks=2] stream 0x57bdcf875800
+610da0310437:2539:2539 [0] NCCL INFO AllReduce: 1048576 Bytes -> Algo RING proto SIMPLE channel{Lo..Hi}={0..1}
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 5 sendbuff 0x7e0a43600000 recvbuff 0x7e0a43600000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf8a3bc0 [nranks=2] stream 0x57bdcead2130
+610da0310437:2539:2539 [1] NCCL INFO AllReduce: opCount 5 sendbuff 0x7e0a43c00000 recvbuff 0x7e0a43c00000 count 262144 datatype 7 op 0 root 0 comm 0x57bdcf923520 [nranks=2] stream 0x57bdcf875800
+610da0310437:2539:2539 [0] NCCL INFO AllReduce: 1048576 Bytes -> Algo RING proto SIMPLE channel{Lo..Hi}={0..1}
+   779.62    1.34    1.34       0
+610da0310437:2539:2557 [0] NCCL INFO comm 0x57bdcf8a3bc0 rank 0 nranks 2 cudaDev 0 busId 40 - Destroy COMPLETE
+610da0310437:2539:2557 [1] NCCL INFO comm 0x57bdcf923520 rank 1 nranks 2 cudaDev 1 busId 50 - Destroy COMPLETE
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 1.26707 
+#
+# Collective test concluded: all_reduce_perf
+#
+
